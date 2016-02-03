@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
+  root 'todo_items#index'
+
   resources :todo_items
 
-  root 'todo_items#index'
+
 
   #  root 'welcome#index'
   # The priority is based upon order of creation: first created -> highest priority.
