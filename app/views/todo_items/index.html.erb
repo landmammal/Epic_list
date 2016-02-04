@@ -1,27 +1,37 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Listing Todo Items</h1>
+<div id="title"><h1>EPIC Todo Items</h1></div>
 
-<table class="table">
+
+
+
+<div class="mytable"><table class="table">
   <thead>
     <tr>
-      <th>Description</th>
+      <th>TASK</th>
       <th colspan="3"></th>
     </tr>
   </thead>
 
   <tbody>
     <% @todo_items.each do |todo_item| %>
-      <tr>
-        <td><%= todo_item.description %></td>
-        <td><%= link_to 'Show', todo_item %></td>
-        <td><%= link_to 'Edit', edit_todo_item_path(todo_item) %></td>
-        <td><%= link_to 'Destroy', todo_item, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+    <tr>
+      <td><%= todo_item.description %></td>
+      <td><%= link_to todo_item do %>
+        <span class="glyphicon glyphicon-th"></span>
+        <% end %></td>
+      <td><%= link_to edit_todo_item_path(todo_item) do %>
+        <span class="glyphicon glyphicon-pencil"></span>
+        <% end %></td>
+      <td><%= link_to todo_item, method: :delete, data: { confirm: 'Are you sure?' } do  %>
+        <span class="glyphicon glyphicon-trash"></span>
+        <% end %>
+      </td>
+    </tr>
     <% end %>
   </tbody>
 </table>
-
+</table>
 <br>
 
 <%= link_to 'New Todo item', new_todo_item_path %>
